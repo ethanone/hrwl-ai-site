@@ -79,6 +79,36 @@ const Section = memo(({ children, className = "", id }: {
 ));
 Section.displayName = "Section";
 
+// Logo SVG 组件 - 参照 logo.webp 设计
+const UUMILogo = memo(({ className = "w-12 h-12" }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#60A5FA', stopOpacity: 1 }} />
+        <stop offset="100%" style={{ stopColor: '#3B82F6', stopOpacity: 1 }} />
+      </linearGradient>
+    </defs>
+    
+    {/* U 字形主体 */}
+    <path
+      d="M 20 25 L 20 55 Q 20 75 35 75 L 65 75 Q 80 75 80 55 L 80 25"
+      fill="none"
+      stroke="url(#logoGradient)"
+      strokeWidth="12"
+      strokeLinecap="round"
+    />
+    
+    {/* 右上角圆点 */}
+    <circle cx="85" cy="25" r="7" fill="url(#logoGradient)">
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    
+    {/* 连接线 */}
+    <line x1="80" y1="25" x2="78" y2="25" stroke="url(#logoGradient)" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+));
+UUMILogo.displayName = "UUMILogo";
+
 // 导航栏组件
 const Navigation = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,31 +123,24 @@ const Navigation = memo(() => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-md">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - 科技感设计 */}
+          {/* Logo - 全新设计 */}
           <a href="#home" className="flex items-center space-x-3 group">
-            <div className="relative w-11 h-11">
-              {/* 外圈旋转光环 */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 opacity-20 group-hover:opacity-30 transition-opacity animate-spin-slow" />
-              
-              {/* 主 Logo 容器 */}
-              <div className="relative w-full h-full rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-all group-hover:scale-105">
-                {/* 科技感 U 字母 */}
-                <div className="relative">
-                  <span className="text-2xl font-black text-white tracking-tighter">U</span>
-                  {/* 光点效果 */}
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-                </div>
-              </div>
+            {/* Logo 图标 */}
+            <div className="relative">
+              <UUMILogo className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg" />
             </div>
             
+            {/* Logo 文字 */}
             <div className="relative">
-              <h1 className="text-xl font-black tracking-tight gradient-text">UUMI</h1>
-              <p className="text-xs text-gray-500 hidden md:block font-medium">悠悠米科技</p>
+              <h1 className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+                UUMI
+              </h1>
+              <p className="text-xs text-gray-600 hidden md:block font-semibold tracking-wide">悠悠米科技</p>
               {/* 底部装饰线 */}
-              <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300" />
+              <div className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300" />
             </div>
           </a>
 
