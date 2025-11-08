@@ -201,19 +201,19 @@ const HeroSection = memo(() => (
     
     <div className="relative z-10 container mx-auto max-w-7xl px-4 text-center">
       <motion.div {...fadeInUp}>
-        <Badge className="mb-6 gradient-primary text-white border-0 shadow-lg px-6 py-2 text-sm">
+        <p className="mb-8 text-purple-600 font-bold text-lg md:text-xl">
           成立于 2023 · AI 智能化转型专家
-        </Badge>
+        </p>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tech-title">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tech-title">
           <span className="tech-text-animated">让智能带来全新视界</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-800 mb-6 max-w-3xl mx-auto font-semibold leading-relaxed">
           四川悠悠米科技有限公司专注于将人工智能技术深度应用于解决实际产业痛点
         </p>
         
-        <p className="text-base md:text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
           通过融合 AI 技术与行业知识，显著提升效率、优化流程、降低成本，最终解放生产力
         </p>
         
@@ -248,7 +248,7 @@ const FocusAreasSection = memo(() => (
       <h2 className="text-3xl md:text-5xl font-bold mb-6 tech-title">
         我们的<span className="gradient-text">焦点领域</span>
       </h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
         致力于为以下关键领域提供精准的智能化解决方案，应对其工作中的实际需求和挑战
       </p>
     </motion.div>
@@ -279,7 +279,7 @@ const FocusAreasSection = memo(() => (
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed">{area.description}</p>
+                <p className="text-gray-800 leading-relaxed font-medium">{area.description}</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -301,7 +301,7 @@ const AboutSection = memo(() => (
         <h2 className="text-3xl md:text-5xl font-bold mb-6">
           专注<span className="gradient-text">AI技术深度应用</span>
         </h2>
-        <div className="space-y-4 text-gray-600 leading-relaxed text-left">
+        <div className="space-y-6 text-gray-800 leading-relaxed text-left text-lg font-medium">
           {companyData.aboutUs.intro.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
@@ -312,14 +312,14 @@ const AboutSection = memo(() => (
             <CheckCircle2 className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
             <div>
               <h4 className="font-semibold text-gray-900 mb-1">核心目标</h4>
-              <p className="text-gray-600">{companyData.aboutUs.mission}</p>
+              <p className="text-gray-800 font-medium">{companyData.aboutUs.mission}</p>
             </div>
           </div>
           <div className="flex items-start space-x-3 text-left">
             <Target className="w-6 h-6 text-pink-600 flex-shrink-0 mt-1" />
             <div>
               <h4 className="font-semibold text-gray-900 mb-1">企业愿景</h4>
-              <p className="text-gray-600">{companyData.aboutUs.vision}</p>
+              <p className="text-gray-800 font-medium">{companyData.aboutUs.vision}</p>
             </div>
           </div>
         </div>
@@ -362,7 +362,7 @@ const AdvantagesSection = memo(() => (
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed mb-4">{advantage.description}</p>
+                <p className="text-gray-800 leading-relaxed mb-4 font-medium">{advantage.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {advantage.highlights.map((highlight, idx) => (
                     <Badge key={idx} variant="secondary" className="bg-purple-100 text-purple-700 hover:bg-purple-200">
@@ -390,7 +390,7 @@ const TeamSection = memo(() => (
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
         认识我们的<span className="gradient-text">专家团队</span>
       </h2>
-      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
         {companyData.team.intro}
       </p>
     </motion.div>
@@ -445,7 +445,7 @@ const CaseStudiesSection = memo(() => (
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
         <span className="gradient-text">真实场景</span>的智能化落地
       </h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
         深度融合 AI 技术与行业知识，为客户创造切实的商业价值
       </p>
     </motion.div>
@@ -559,7 +559,7 @@ const ContactSection = memo(() => (
       <h2 className="text-3xl md:text-5xl font-bold mb-6">
         开启您的<span className="gradient-text">智能化转型</span>之旅
       </h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
         期待与各行各业深度融合，协作走向新的未来
       </p>
     </motion.div>
