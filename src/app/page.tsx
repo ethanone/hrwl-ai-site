@@ -282,10 +282,10 @@ HeroSection.displayName = "HeroSection";
 const FocusAreasSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section className="bg-gradient-to-b from-white to-green-50">
     <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-4 gradient-secondary text-white border-0 shadow-md">
+      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-secondary text-white border-0 shadow-lg">
         {uiText.focusAreas.badge}
       </Badge>
-      <h2 className="text-3xl md:text-5xl font-bold mb-6 tech-title">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tech-title">
         {uiText.focusAreas.title}<span className="gradient-text">{uiText.focusAreas.titleHighlight}</span>
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
@@ -335,10 +335,10 @@ const AboutSection = memo(({ companyData, uiText }: { companyData: CompanyData; 
   <Section id="about" className="bg-white">
     <div className="max-w-4xl mx-auto">
       <motion.div {...fadeInUp} className="text-center">
-        <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
+        <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
           {uiText.about.badge}
         </Badge>
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
           {uiText.about.title}<span className="gradient-text">{companyData.companyInfo.focus}</span>
         </h2>
         <div className="space-y-6 text-gray-800 leading-relaxed text-left text-xl font-medium">
@@ -373,10 +373,10 @@ AboutSection.displayName = "AboutSection";
 const AdvantagesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="services" className="bg-gradient-to-b from-green-50 to-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-4 gradient-accent text-white border-0 shadow-md">
+      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-accent text-white border-0 shadow-lg">
         {uiText.advantages.badge}
       </Badge>
-      <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
         {uiText.advantages.title}<span className="gradient-text">{uiText.advantages.titleHighlight}</span>
       </h2>
     </motion.div>
@@ -424,10 +424,10 @@ AdvantagesSection.displayName = "AdvantagesSection";
 const TeamSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="team" className="bg-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
+      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
         {uiText.team.badge}
       </Badge>
-      <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
         {uiText.team.title}<span className="gradient-text">{uiText.team.titleHighlight}</span>
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
@@ -478,10 +478,10 @@ TeamSection.displayName = "TeamSection";
 const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
   <Section id="cases" className="bg-gradient-to-b from-white to-green-50">
     <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-4 gradient-secondary text-white border-0 shadow-md">
+      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-secondary text-white border-0 shadow-lg">
         {uiText.cases.badge}
       </Badge>
-      <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
         <span className="gradient-text">{uiText.cases.title}</span>{uiText.cases.titleHighlight}
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
@@ -595,10 +595,10 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
   return (
   <Section id="contact" className="bg-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
-      <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
+      <Badge className="mb-6 px-6 py-2 text-base md:text-lg font-bold gradient-primary text-white border-0 shadow-lg">
         {uiText.contact.badge}
       </Badge>
-      <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
         {uiText.contact.title}<span className="gradient-text">{uiText.contact.titleHighlight}</span>{uiText.contact.titleSuffix}
       </h2>
       <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium leading-relaxed">
