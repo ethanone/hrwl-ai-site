@@ -160,7 +160,7 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
               <span>{language === 'zh' ? 'EN' : '中文'}</span>
             </button>
             <Button className="gradient-primary text-white shadow-lg hover:shadow-xl transition-shadow" asChild>
-              <a href={`mailto:uj.zhou@foxmail.com?subject=${language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample'}`}>
+              <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
                 {uiText.navigation.requestSample}
               </a>
             </Button>
@@ -204,7 +204,7 @@ const Navigation = memo(({ uiText }: { uiText: UIText }) => {
               <span>{uiText.navigation.switchToEnglish}</span>
             </button>
             <Button className="w-full mt-4 gradient-primary text-white" asChild>
-              <a href={`mailto:uj.zhou@foxmail.com?subject=${language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample'}`}>
+              <a href={`mailto:uj.zhou@foxmail.com?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品,并获取样品' : 'Inquiry about Morel Mushrooms and Request Sample')}`}>
                 {uiText.navigation.requestSample}
               </a>
             </Button>
@@ -260,7 +260,7 @@ const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
             </a>
           </Button>
           <Button size="lg" variant="outline" className="tech-button border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg" asChild>
-            <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms'}`}>
+            <a href="#contact">
               <Phone className="mr-2 w-5 h-5" />
               {uiText.hero.contactUs}
             </a>
@@ -631,7 +631,7 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.emailLabel}</h4>
-                  <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms'}`} className="text-green-600 hover:text-green-700 font-medium">
+                  <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms')}`} className="text-green-600 hover:text-green-700 font-medium">
                     {companyData.contact.email}
                   </a>
                 </div>
@@ -659,7 +659,7 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
               {companyData.aboutUs.vision}
             </p>
             <Button size="lg" className="w-full bg-white text-green-600 hover:bg-gray-100 shadow-lg" asChild>
-              <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品与合作' : 'Inquiry about Morel Mushrooms & Cooperation'}`}>
+              <a href={`mailto:${companyData.contact.email}?subject=${encodeURIComponent(language === 'zh' ? '咨询羊肚菌产品与合作' : 'Inquiry about Morel Mushrooms & Cooperation')}`}>
                 {uiText.contact.cta}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
