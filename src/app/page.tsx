@@ -249,13 +249,17 @@ const HeroSection = memo(({ companyData, uiText }: { companyData: CompanyData; u
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="tech-button gradient-primary text-white shadow-xl hover:shadow-2xl transition-all px-8 py-6 text-lg">
-            {uiText.hero.learnMore}
-            <ArrowRight className="ml-2 w-5 h-5" />
+          <Button size="lg" className="tech-button gradient-primary text-white shadow-xl hover:shadow-2xl transition-all px-8 py-6 text-lg" asChild>
+            <a href="#contact">
+              {uiText.hero.learnMore}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
-          <Button size="lg" variant="outline" className="tech-button border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg">
-            <Phone className="mr-2 w-5 h-5" />
-            {uiText.hero.contactUs}
+          <Button size="lg" variant="outline" className="tech-button border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg" asChild>
+            <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms'}`}>
+              <Phone className="mr-2 w-5 h-5" />
+              {uiText.hero.contactUs}
+            </a>
           </Button>
         </div>
       </motion.div>
@@ -581,7 +585,10 @@ const CaseStudiesSection = memo(({ companyData, uiText }: { companyData: Company
 CaseStudiesSection.displayName = "CaseStudiesSection";
 
 // Contact Section
-const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => (
+const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData; uiText: UIText }) => {
+  const { language } = useLanguage();
+  
+  return (
   <Section id="contact" className="bg-white">
     <motion.div {...fadeInUp} className="text-center mb-16">
       <Badge className="mb-4 gradient-primary text-white border-0 shadow-md">
@@ -606,7 +613,7 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">联系电话</h4>
+                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.phoneLabel}</h4>
                   <a href={`tel:${companyData.contact.phone}`} className="text-green-600 hover:text-green-700 font-medium">
                     {companyData.contact.phone}
                   </a>
@@ -619,8 +626,8 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">电子邮箱</h4>
-                  <a href={`mailto:${companyData.contact.email}`} className="text-green-600 hover:text-green-700 font-medium">
+                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.emailLabel}</h4>
+                  <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品' : 'Inquiry about Morel Mushrooms'}`} className="text-green-600 hover:text-green-700 font-medium">
                     {companyData.contact.email}
                   </a>
                 </div>
@@ -631,7 +638,7 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">公司地址</h4>
+                  <h4 className="font-semibold text-gray-900 mb-1">{uiText.contact.addressLabel}</h4>
                   <p className="text-gray-600">
                     {companyData.contact.address}
                   </p>
@@ -647,9 +654,11 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
             <p className="mb-6 opacity-90">
               {companyData.aboutUs.vision}
             </p>
-            <Button size="lg" className="w-full bg-white text-green-600 hover:bg-gray-100 shadow-lg">
-              预约咨询
-              <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" className="w-full bg-white text-green-600 hover:bg-gray-100 shadow-lg" asChild>
+              <a href={`mailto:${companyData.contact.email}?subject=${language === 'zh' ? '咨询羊肚菌产品与合作' : 'Inquiry about Morel Mushrooms & Cooperation'}`}>
+                {uiText.contact.cta}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
             </Button>
           </CardContent>
         </Card>
@@ -695,7 +704,8 @@ const ContactSection = memo(({ companyData, uiText }: { companyData: CompanyData
       </motion.div>
     </div>
   </Section>
-));
+  );
+});
 ContactSection.displayName = "ContactSection";
 
 // Footer
