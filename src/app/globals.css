@@ -701,98 +701,46 @@ a[href^="http"]:not(.tech-button):hover::after {
   opacity: 1;
 }
 
-/* 优雅的文字效果 - 参考 Supima 和 Foundry */
+/* 极简的文字效果 - 参考 Supima 和 Foundry */
 .tech-text-animated {
-  color: #0A0A0A;
-  -webkit-text-fill-color: #0A0A0A;
-  font-weight: 400; /* 更轻的字重，更优雅 */
-  letter-spacing: -0.02em; /* 更紧凑的字距 */
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #000000;
+  -webkit-text-fill-color: #000000;
+  font-weight: 200; /* 极轻的字重，参考 Supima */
+  letter-spacing: -0.03em; /* 更紧凑的字距 */
 }
 
-.tech-text-animated:hover {
-  transform: translateY(-1px);
-}
-
-/* 精致的卡片效果 - 参考 Foundry 的优雅设计 */
+/* 极简的卡片效果 - 参考 Supima 和 Foundry 的简约设计 */
 .tech-card {
   position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid #E5E7EB;
   background: #FFFFFF;
-  will-change: transform;
-  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tech-card:focus-visible {
   outline: 2px solid #000000;
   outline-offset: 2px;
-  border-color: #000000;
-}
-
-.tech-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.015);
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.tech-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.tech-card:hover::before {
-  opacity: 1;
-}
-
-.tech-card:hover::after {
-  opacity: 1;
 }
 
 .tech-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
-  border-color: #D1D5DB;
+  opacity: 0.8;
 }
 
-/* 移动端优化 - 减少 hover 效果 */
+/* 移动端优化 */
 @media (hover: none) {
   .tech-card:hover {
-    transform: none;
+    opacity: 1;
   }
 }
 
-/* 优雅的按钮效果 - 参考 Supima 和 Foundry */
+/* 极简的按钮效果 - 参考 Supima 和 Foundry */
 .tech-button {
   position: relative;
-  overflow: hidden;
   background: #000000;
   color: #FFFFFF;
   border: 1px solid #000000;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  will-change: transform;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 300;
+  letter-spacing: 0.1em;
   cursor: pointer;
   user-select: none;
 }
@@ -802,40 +750,18 @@ a[href^="http"]:not(.tech-button):hover::after {
   outline-offset: 2px;
 }
 
-.tech-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-
 .tech-button:hover {
-  background: #0A0A0A;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
-
-.tech-button:hover::before {
-  width: 300px;
-  height: 300px;
+  background: #1A1A1A;
 }
 
 .tech-button:active {
-  transform: translateY(0);
-  transition: transform 0.1s;
+  background: #000000;
 }
 
 /* 移动端优化 */
 @media (hover: none) {
   .tech-button:hover {
-    transform: none;
+    background: #000000;
   }
 }
 
