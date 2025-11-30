@@ -52,22 +52,29 @@ const iconColorMap: Record<string, { base: string; accent: string }> = {
 
 const defaultIconPalette = { base: "#FFF7ED", accent: "#8B2F2F" };
 
-// 优化的动画配置
+// 优化的动画配置 - 移动端友好
 const fadeInUp = {
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   transition: { 
-    duration: 0.8,
+    duration: 0.6,
     ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
   },
-  viewport: { once: true, margin: "-100px" },
+  viewport: { once: true, margin: "0px" },  // 移除负边距，确保动画触发
+};
+
+// 用于 variants 模式的动画
+const fadeInUpVariant = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const staggerContainer = {
+  initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
     },
   },
 };
@@ -242,13 +249,13 @@ const SolutionsSection = memo(({ companyData, uiText }: { companyData: CompanyDa
       variants={staggerContainer}
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px" }}
       className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8"
     >
       {companyData.focusAreas.map((area, index) => {
         const Icon = iconMap[area.icon as keyof typeof iconMap] || Shield;
         return (
-          <motion.div key={index} variants={fadeInUp}>
+          <motion.div key={index} variants={fadeInUpVariant}>
             <Card 
               className="tech-card group h-full bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-500"
               style={{ borderColor: area.color + '40' }}
