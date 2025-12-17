@@ -2,16 +2,15 @@
 
 import { memo, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ChatModal } from "@/components/ChatModal";
 import { FloatingChatButton } from "@/components/FloatingChatButton";
+import { ProjectModal } from "@/components/ProjectModal";
 import { motion } from "framer-motion";
 import {
   Languages,
   Bot,
-  Sparkles,
   Zap,
   TrendingUp,
   Clock,
@@ -59,6 +58,7 @@ export default function HomePage() {
   const companyData = language === 'zh' ? companyDataZh : (companyDataEn as unknown as CompanyData);
   const uiText = language === 'zh' ? uiTextZh : (uiTextEn as unknown as UIText);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
@@ -66,6 +66,9 @@ export default function HomePage() {
       
       {/* 聊天模态框 */}
       <ChatModal isOpen={isChatModalOpen} onClose={() => setIsChatModalOpen(false)} />
+      
+      {/* 项目简介模态框 */}
+      <ProjectModal isOpen={isProjectModalOpen} onClose={() => setIsProjectModalOpen(false)} language={language} />
       
       {/* 浮动聊天按钮 */}
       <FloatingChatButton onClick={() => setIsChatModalOpen(true)} />
@@ -93,15 +96,14 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* 标签 */}
+            {/* 标签 - 简约苹果风格 */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 mb-8 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full shadow-lg"
+              className="inline-flex items-center space-x-2 mb-8"
             >
-              <Sparkles className="w-5 h-5 text-white" />
-              <span className="text-sm font-semibold text-white tracking-wider uppercase">
+              <span className="text-base sm:text-lg text-gray-500 tracking-wider font-light">
                 {companyData.companyInfo.tagline}
               </span>
             </motion.div>
@@ -111,7 +113,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-8 leading-[1.1] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight"
             >
               <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                 工厂AI数字员工
@@ -156,12 +158,10 @@ export default function HomePage() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                asChild
+                onClick={() => setIsProjectModalOpen(true)}
                 className="secondary-button px-12 py-7 text-lg font-semibold tracking-wide w-full sm:w-auto min-h-[64px] border-2"
               >
-                <Link href="/chat">
-                  {language === 'zh' ? '了解更多' : 'Learn More'}
-                </Link>
+                {language === 'zh' ? '了解更多' : 'Learn More'}
               </Button>
             </motion.div>
 
