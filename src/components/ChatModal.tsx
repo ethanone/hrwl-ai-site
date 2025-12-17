@@ -67,7 +67,7 @@ export const ChatModal = memo(({ isOpen, onClose }: ChatModalProps) => {
             {/* iframe 容器 */}
             <div className="flex-1 relative">
               <iframe
-                src="https://udify.app/chatbot/4q0zyeskIKOWQAVq"
+                src="https://udify.app/chatbot/N2kIfrNBa1s9GT7w"
                 className="absolute inset-0 w-full h-full border-0"
                 allow="microphone"
                 title="AI Chat"
