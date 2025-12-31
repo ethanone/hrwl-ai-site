@@ -73,16 +73,15 @@ export default function HomePage() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="flex items-center"
             >
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44">
-                {/* 临时使用现有图片，请将红色logo保存为 /public/images/logo.png */}
+              <div className="relative h-12 sm:h-14 md:h-16 w-auto">
                 <Image
                   src="/images/logo.png"
                   alt="海南汇融未来有限公司"
-                  width={176}
-                  height={176}
-                  className="object-contain w-full h-full"
+                  width={320}
+                  height={322}
+                  className="object-contain h-full w-auto"
                   priority
-                  sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 176px"
+                  sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 200px"
                 />
               </div>
             </motion.div>
