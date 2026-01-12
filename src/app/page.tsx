@@ -18,6 +18,10 @@ import {
   Users,
   Building2,
   Heart,
+  Target,
+  Eye,
+  Handshake,
+  Compass,
 } from "lucide-react";
 import companyDataZh from "@/data/companyData.json";
 import companyDataEn from "@/data/companyData.en.json";
@@ -227,8 +231,109 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 四大赋能引擎 Section */}
+      {/* 专业团队 Section - 放在前面更专业 */}
       <section className="py-24 px-4 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                {language === 'zh' ? '专业团队' : 'Professional Team'}
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              {language === 'zh' 
+                ? '汇融未来拥有一支经验丰富、专业高效的团队，为您提供全方位的企业服务' 
+                : 'Huirong Future has an experienced and professional team to provide you with comprehensive enterprise services'}
+            </p>
+          </motion.div>
+
+          {/* 团队照片 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-r from-gray-800 to-gray-900"
+          >
+            <div className="relative w-full">
+              <Image
+                src="/images/team/team-photo.jpg"
+                alt={language === 'zh' ? '汇融未来团队' : 'Huirong Future Team'}
+                width={2882}
+                height={604}
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                priority
+                style={{ display: 'block' }}
+              />
+              {/* 装饰边框 - 金色边框效果 */}
+              <div className="absolute inset-0 border-4 border-yellow-500/80 rounded-3xl pointer-events-none" />
+              <div className="absolute inset-2 border border-yellow-500/30 rounded-2xl pointer-events-none" />
+            </div>
+            
+            {/* 团队信息覆盖层 - 贴近图片底部 */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-white">
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">40+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '专业团队成员' : 'Team Members'}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">10+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '年行业经验' : 'Years Experience'}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">1000+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '服务企业' : 'Served Enterprises'}</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 核心价值观 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-5"
+          >
+            {[
+              { Icon: Target, title: language === 'zh' ? '聚力' : 'Focus', subtitle: 'Focus Energy', color: '#8B2F39' },
+              { Icon: Eye, title: language === 'zh' ? '洞见' : 'Insight', subtitle: 'Insight', color: '#1E40AF' },
+              { Icon: Handshake, title: language === 'zh' ? '共创' : 'Co-create', subtitle: 'Co-create', color: '#059669' },
+              { Icon: Compass, title: language === 'zh' ? '致远' : 'To Distance', subtitle: 'To the Distance', color: '#C9A872' },
+            ].map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-100 group"
+              >
+                <div 
+                  className="w-14 h-14 mx-auto mb-3 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: value.color + '15' }}
+                >
+                  <value.Icon className="w-7 h-7" style={{ color: value.color }} />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900">{value.title}</h4>
+                <p className="text-xs text-gray-500 mt-1">{value.subtitle}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 四大赋能引擎 Section */}
+      <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -299,17 +404,9 @@ export default function HomePage() {
                     >
                       {renderIcon()}
                     </div>
-                    <div>
-                      <span 
-                        className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: engine.color + '15', color: engine.color }}
-                      >
-                        {language === 'zh' ? `引擎 ${engine.id}` : `Engine ${engine.id}`}
-                      </span>
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mt-1">
-                        {engine.title}
-                      </h3>
-                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                      {engine.title}
+                    </h3>
                   </div>
 
                   {/* 引擎内容项 */}
@@ -334,102 +431,6 @@ export default function HomePage() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* 专业团队 Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                {language === 'zh' ? '专业团队' : 'Professional Team'}
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              {language === 'zh' 
-                ? '汇融未来拥有一支经验丰富、专业高效的团队，为您提供全方位的企业服务' 
-                : 'Huirong Future has an experienced and professional team to provide you with comprehensive enterprise services'}
-            </p>
-          </motion.div>
-
-          {/* 团队照片 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-r from-gray-800 to-gray-900"
-          >
-            <div className="relative w-full">
-              <Image
-                src="/images/team/team-photo.jpg"
-                alt={language === 'zh' ? '汇融未来团队' : 'Huirong Future Team'}
-                width={2882}
-                height={604}
-                className="w-full h-auto object-contain"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                priority
-                style={{ display: 'block' }}
-              />
-              {/* 装饰边框 - 金色边框效果 */}
-              <div className="absolute inset-0 border-4 border-yellow-500/80 rounded-3xl pointer-events-none" />
-              <div className="absolute inset-2 border border-yellow-500/30 rounded-2xl pointer-events-none" />
-            </div>
-            
-            {/* 团队信息覆盖层 - 贴近图片底部 */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-white">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">40+</div>
-                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '专业团队成员' : 'Team Members'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">10+</div>
-                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '年行业经验' : 'Years Experience'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">1000+</div>
-                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '服务企业' : 'Served Enterprises'}</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 核心价值观 */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {[
-              { icon: '🎯', title: language === 'zh' ? '聚力' : 'Focus', subtitle: 'Focus Energy' },
-              { icon: '💡', title: language === 'zh' ? '洞见' : 'Insight', subtitle: 'Insight' },
-              { icon: '🤝', title: language === 'zh' ? '共创' : 'Co-create', subtitle: 'Co-create' },
-              { icon: '🚀', title: language === 'zh' ? '致远' : 'To Distance', subtitle: 'To the Distance' },
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-100"
-              >
-                <div className="text-4xl mb-3">{value.icon}</div>
-                <h4 className="text-xl font-bold text-gray-900">{value.title}</h4>
-                <p className="text-sm text-gray-500 mt-1">{value.subtitle}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
