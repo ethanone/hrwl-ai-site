@@ -247,30 +247,28 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* 概念图与引擎卡片融合布局 */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* 左侧：概念图 */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="lg:col-span-1 flex items-center justify-center"
-            >
-              <div className="relative w-full max-w-[280px]">
-                <Image
-                  src="/images/engines/four-engines-concept.png"
-                  alt={language === 'zh' ? '四大赋能引擎概念图' : 'Four Empowerment Engines Concept'}
-                  width={280}
-                  height={280}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-            </motion.div>
+          {/* 概念图 - 居中缩小显示 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex justify-center mb-10"
+          >
+            <div className="relative w-[200px] sm:w-[240px]">
+              <Image
+                src="/images/engines/four-engines-concept.png"
+                alt={language === 'zh' ? '四大赋能引擎概念图' : 'Four Empowerment Engines Concept'}
+                width={240}
+                height={240}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </motion.div>
 
-            {/* 右侧：引擎详情卡片 */}
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* 引擎详情卡片 - 2x2 网格 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {companyData.empowermentEngines?.engines?.map((engine, index) => {
               // 根据引擎类型渲染对应图标
               const renderIcon = () => {
@@ -335,7 +333,6 @@ export default function HomePage() {
                 </motion.div>
               );
             })}
-            </div>
           </div>
         </div>
       </section>
