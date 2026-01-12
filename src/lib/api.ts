@@ -39,7 +39,7 @@ const API_CONFIG = {
 export async function sendMessageToAI(
   message: string,
   conversationId?: string,
-  context?: Record<string, any>
+  context?: Record<string, unknown>
 ): Promise<APIResponse> {
   try {
     // TODO: 替换为您的实际API端点

@@ -18,7 +18,6 @@ import {
   Users,
   Building2,
   Heart,
-  ChevronRight,
 } from "lucide-react";
 import companyDataZh from "@/data/companyData.json";
 import companyDataEn from "@/data/companyData.en.json";
@@ -248,37 +247,42 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* 四大赋能引擎概念图 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-16"
-          >
-            <div className="relative w-full max-w-2xl">
-              <Image
-                src="/images/engines/four-engines-concept.png"
-                alt={language === 'zh' ? '四大赋能引擎概念图' : 'Four Empowerment Engines Concept'}
-                width={800}
-                height={800}
-                className="w-full h-auto rounded-2xl shadow-xl"
-                priority
-                style={{ display: 'block' }}
-              />
-            </div>
-          </motion.div>
+          {/* 概念图与引擎卡片融合布局 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* 左侧：概念图 */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="lg:col-span-1 flex items-center justify-center"
+            >
+              <div className="relative w-full max-w-[280px]">
+                <Image
+                  src="/images/engines/four-engines-concept.png"
+                  alt={language === 'zh' ? '四大赋能引擎概念图' : 'Four Empowerment Engines Concept'}
+                  width={280}
+                  height={280}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            </motion.div>
 
-          {/* 引擎详情卡片 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 右侧：引擎详情卡片 */}
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
             {companyData.empowermentEngines?.engines?.map((engine, index) => {
-              const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
-                Rocket: Rocket,
-                Users: Users,
-                Building: Building2,
-                Heart: Heart,
+              // 根据引擎类型渲染对应图标
+              const renderIcon = () => {
+                const iconProps = { className: "w-6 h-6", style: { color: engine.color } };
+                switch (engine.icon) {
+                  case 'Rocket': return <Rocket {...iconProps} />;
+                  case 'Users': return <Users {...iconProps} />;
+                  case 'Building': return <Building2 {...iconProps} />;
+                  case 'Heart': return <Heart {...iconProps} />;
+                  default: return <Rocket {...iconProps} />;
+                }
               };
-              const IconComponent = iconMap[engine.icon] || Rocket;
               
               return (
                 <motion.div
@@ -287,42 +291,42 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20 group"
+                  className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 group"
                 >
                   {/* 引擎标题 */}
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-3 mb-4">
                     <div 
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                      className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
                       style={{ backgroundColor: engine.color + '15' }}
                     >
-                      <IconComponent className="w-7 h-7" style={{ color: engine.color }} />
+                      {renderIcon()}
                     </div>
                     <div>
                       <span 
-                        className="text-sm font-semibold px-3 py-1 rounded-full"
+                        className="text-xs font-semibold px-2 py-0.5 rounded-full"
                         style={{ backgroundColor: engine.color + '15', color: engine.color }}
                       >
                         {language === 'zh' ? `引擎 ${engine.id}` : `Engine ${engine.id}`}
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-2">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mt-1">
                         {engine.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* 引擎内容项 */}
-                  <div className="space-y-4">
+                  <div className="space-y-2.5">
                     {engine.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex}
-                        className="pl-4 border-l-3 transition-all hover:pl-6"
+                        className="pl-3 border-l-2 transition-all hover:pl-4"
                         style={{ borderLeftColor: engine.color }}
                       >
-                        <h4 className="font-semibold text-gray-800 flex items-center gap-2">
-                          <ChevronRight className="w-4 h-4" style={{ color: engine.color }} />
+                        <h4 className="font-semibold text-gray-800 text-sm flex items-center gap-1">
+                          <span style={{ color: engine.color }}>›</span>
                           {item.name}
                         </h4>
-                        <p className="text-gray-600 text-sm mt-1 leading-relaxed">
+                        <p className="text-gray-600 text-xs mt-0.5 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -331,6 +335,7 @@ export default function HomePage() {
                 </motion.div>
               );
             })}
+            </div>
           </div>
         </div>
       </section>
@@ -365,7 +370,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-r from-gray-800 to-gray-900"
           >
-            <div className="relative w-full" style={{ minHeight: '400px' }}>
+            <div className="relative w-full">
               <Image
                 src="/images/team/team-photo.jpg"
                 alt={language === 'zh' ? '汇融未来团队' : 'Huirong Future Team'}
@@ -381,24 +386,20 @@ export default function HomePage() {
               <div className="absolute inset-2 border border-yellow-500/30 rounded-2xl pointer-events-none" />
             </div>
             
-            {/* 团队信息覆盖层 */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
-              <div className="flex flex-wrap items-center justify-center gap-8 text-white">
+            {/* 团队信息覆盖层 - 贴近图片底部 */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-white">
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-yellow-400">40+</div>
-                  <div className="text-sm text-gray-300">{language === 'zh' ? '专业团队成员' : 'Team Members'}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">40+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '专业团队成员' : 'Team Members'}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-yellow-400">10+</div>
-                  <div className="text-sm text-gray-300">{language === 'zh' ? '年行业经验' : 'Years Experience'}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">10+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '年行业经验' : 'Years Experience'}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-yellow-400">1000+</div>
-                  <div className="text-sm text-gray-300">{language === 'zh' ? '服务企业' : 'Served Enterprises'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-yellow-400">98%</div>
-                  <div className="text-sm text-gray-300">{language === 'zh' ? '客户满意度' : 'Satisfaction Rate'}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-yellow-400">1000+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{language === 'zh' ? '服务企业' : 'Served Enterprises'}</div>
                 </div>
               </div>
             </div>
