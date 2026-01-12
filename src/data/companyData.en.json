@@ -257,6 +257,80 @@
       "image": "/images/case-change.webp"
     }
   ],
+  "empowermentEngines": {
+    "title": "Four Empowerment Engines",
+    "subtitle": "Here, service is not the end, growing together is",
+    "engines": [
+      {
+        "id": 1,
+        "title": "Enterprise Growth Acceleration Engine",
+        "icon": "Rocket",
+        "color": "#3B82F6",
+        "items": [
+          {
+            "name": "Strategic Entry",
+            "description": "In-depth inspection of 13 major parks, providing panoramic decision support from policy interpretation, land matching to registration landing."
+          },
+          {
+            "name": "Deep Service",
+            "description": "Covering full lifecycle services of company registration, financial & tax compliance, qualification processing, and investment attraction."
+          },
+          {
+            "name": "Resource Connection",
+            "description": "The platform core precisely connects industry partners, supply chain resources, sales channels and government relations according to your project needs, breaking information barriers."
+          },
+          {
+            "name": "Capital Empowerment",
+            "description": "Providing one-stop consulting services from business plan organization to connecting with industry funds, venture capital and other diversified financing channels."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Talent Development Support Engine",
+        "icon": "Users",
+        "color": "#10B981",
+        "items": [
+          {
+            "name": "Talent Landing",
+            "description": "Handle various types of talent settlement in Hainan, assist in high-level talent recognition and subsidy application."
+          },
+          {
+            "name": "Settlement Planning",
+            "description": "Provide enrollment planning and school selection services for quality primary and secondary schools, international schools in Haikou, resolving family concerns."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Asset & Opportunity Allocation Engine",
+        "icon": "Building",
+        "color": "#F59E0B",
+        "items": [
+          {
+            "name": "Core Assets",
+            "description": "Agency for provincial residential, commercial, industrial, logistics and other land and property transactions."
+          },
+          {
+            "name": "Special Opportunities",
+            "description": "Providing screening, due diligence and disposal consulting for special investment opportunities such as non-performing assets."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Future Health & Life Quality Engine",
+        "icon": "Heart",
+        "color": "#EF4444",
+        "items": [
+          {
+            "name": "Boao Lecheng Life Technology Experience",
+            "description": "Connect with Boao Lecheng International Medical Tourism Pilot Zone, opening up global cutting-edge life technology experiences for you. From internationally synchronized licensed drugs and devices, precision health management to top medical solutions, we help you control your health and enjoy a high-quality life."
+          }
+        ]
+      }
+    ]
+  },
   "contact": {
     "phone": "0898-XXXX-XXXX",
     "email": "contact@hrwl-ai.com",
