@@ -117,23 +117,36 @@ export default function HomePage() {
       {/* 浮动聊天按钮 */}
       <FloatingChatButton onClick={() => setIsChatModalOpen(true)} />
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32 sm:pt-40">
-        <div className="container mx-auto max-w-6xl text-center">
+      {/* Hero Section - 增强艺术感 */}
+      <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32 sm:pt-40 relative overflow-hidden">
+        {/* 艺术背景装饰 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/3 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto max-w-6xl text-center relative z-10">
           <motion.div {...fadeInUp}>
 
-            {/* 标签 - 科技感设计 */}
+            {/* 标签 - 科技感设计，增强艺术感 */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-3 mb-8 px-5 py-2.5 bg-gradient-to-r from-gray-900/5 via-primary/10 to-gray-900/5 rounded-full border border-gray-200/50 backdrop-blur-sm"
+              className="inline-flex items-center space-x-3 mb-8 px-6 py-3 bg-gradient-to-r from-gray-900/5 via-primary/10 to-gray-900/5 rounded-full border border-gray-200/50 backdrop-blur-sm shadow-lg"
             >
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse" />
+              <span className="relative flex w-2 h-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full w-2 h-2 bg-gradient-to-r from-primary to-accent"></span>
+              </span>
               <span className="text-sm sm:text-base text-gray-600 tracking-[0.2em] uppercase font-medium">
                 {companyData.companyInfo.tagline}
               </span>
-              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-accent to-primary animate-pulse" />
+              <span className="relative flex w-2 h-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full w-2 h-2 bg-gradient-to-r from-accent to-primary"></span>
+              </span>
             </motion.div>
 
             {/* 主标题 - 科技感字体 */}
@@ -194,26 +207,29 @@ export default function HomePage() {
               </Button>
             </motion.div>
 
-            {/* 特性卡片 */}
+            {/* 特性卡片 - 增强艺术感 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
                 {
                   icon: Clock,
                   title: language === 'zh' ? '专业财税团队' : 'Professional Team',
                   desc: language === 'zh' ? '资深注册会计师、税务师' : 'Certified Public Accountants & Tax Agents',
-                  color: '#8B2F39'
+                  color: '#8B2F39',
+                  gradient: 'from-red-50 to-rose-50'
                 },
                 {
                   icon: Zap,
                   title: language === 'zh' ? '一站式服务' : 'One-Stop Service',
                   desc: language === 'zh' ? '从注册到运营全流程' : 'Full-process from registration to operation',
-                  color: '#6B4C7A'
+                  color: '#6B4C7A',
+                  gradient: 'from-purple-50 to-violet-50'
                 },
                 {
                   icon: TrendingUp,
                   title: language === 'zh' ? '自贸区优势' : 'Free Trade Zone',
                   desc: language === 'zh' ? '深度了解政策红利' : 'Deep understanding of policy benefits',
-                  color: '#C9A872'
+                  color: '#C9A872',
+                  gradient: 'from-amber-50 to-yellow-50'
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -222,20 +238,31 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
+                  className={`group relative bg-gradient-to-br ${feature.gradient} rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent overflow-hidden`}
                 >
+                  {/* 悬浮光效 */}
                   <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto"
-                    style={{ backgroundColor: feature.color + '15' }}
-                  >
-                    <feature.icon className="w-8 h-8" style={{ color: feature.color }} />
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: `radial-gradient(circle at 50% 0%, ${feature.color}15, transparent 70%)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg"
+                      style={{ backgroundColor: feature.color + '20', boxShadow: `0 4px 20px ${feature.color}30` }}
+                    >
+                      <feature.icon className="w-8 h-8" style={{ color: feature.color }} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center group-hover:scale-105 transition-transform">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-base text-center leading-relaxed">
+                      {feature.desc}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-base text-center leading-relaxed">
-                    {feature.desc}
-                  </p>
+
+                  {/* 装饰线条 */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-20 transition-opacity" style={{ color: feature.color }} />
                 </motion.div>
               ))}
             </div>
@@ -243,12 +270,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 汇融未来商务考察 Section - 核心业务板块 */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white via-gray-50/50 to-white relative overflow-hidden">
-        {/* 背景装饰 */}
+      {/* 汇融未来商务考察 Section - 核心业务板块，增强艺术感 */}
+      <section className="py-20 px-4 relative overflow-hidden">
+        {/* 艺术背景 - 多层次渐变 */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/30 to-white" />
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+        </div>
+        
+        {/* 浮动装饰元素 */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
+          <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s' }} />
         </div>
         
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -279,7 +313,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* 13大园区核心数字 */}
+          {/* 13大园区核心数字 - 增强艺术感 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -287,14 +321,20 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="flex justify-center mb-12"
           >
-            <div className="relative bg-gradient-to-br from-primary via-secondary to-accent p-1 rounded-2xl">
-              <div className="bg-white rounded-2xl px-10 py-6 flex items-center gap-6">
-                <div className="text-center">
-                  <div className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    {companyData.businessInspection?.parkCount || '13'}
-                  </div>
-                  <div className="text-gray-600 font-medium mt-1 text-sm">
-                    {companyData.businessInspection?.parkLabel || '大重点园区深度对接'}
+            <div className="relative group">
+              {/* 外圈光晕 */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
+              
+              {/* 主卡片 */}
+              <div className="relative bg-gradient-to-br from-primary via-secondary to-accent p-[2px] rounded-2xl">
+                <div className="bg-white rounded-2xl px-12 py-8 flex items-center gap-6">
+                  <div className="text-center">
+                    <div className="text-6xl sm:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:scale-105 transition-transform">
+                      {companyData.businessInspection?.parkCount || '13'}
+                    </div>
+                    <div className="text-gray-600 font-medium mt-2 text-sm tracking-wide">
+                      {companyData.businessInspection?.parkLabel || '大重点园区深度对接'}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -353,7 +393,7 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* 海南自贸港园区分布图 */}
+          {/* 13大重点园区展示 - 艺术化设计 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -361,19 +401,64 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-xl bg-gradient-to-br from-blue-500 to-cyan-400">
-              <Image
-                src={companyData.businessInspection?.mapImage || "/images/hainan-ftp-parks-map.png"}
-                alt={language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
-                width={1200}
-                height={900}
-                className="w-full h-auto object-contain"
-                priority
-              />
-              <div className="absolute inset-0 border-2 border-white/20 rounded-2xl pointer-events-none" />
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 p-8 sm:p-12">
+              {/* 标题 */}
+              <div className="text-center mb-10">
+                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+                  {language === 'zh' ? '海南自贸港 13 大重点园区' : 'Hainan FTP 13 Key Industrial Parks'}
+                </h3>
+                <p className="text-white/80 text-lg">
+                  {language === 'zh' ? '全岛产业布局 · 深度对接服务' : 'Island-wide Industrial Layout · Deep Connection Service'}
+                </p>
+              </div>
+
+              {/* 园区网格展示 */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  { name: '海口国家高新技术产业开发区', city: '海口', color: '#3B82F6' },
+                  { name: '海口复兴城互联网信息产业园', city: '海口', color: '#06B6D4' },
+                  { name: '海口江东新区', city: '海口', color: '#0EA5E9' },
+                  { name: '海口综合保税区', city: '海口', color: '#14B8A6' },
+                  { name: '海南生态软件园', city: '海口', color: '##10B981' },
+                  { name: '临高金牌港临港产业园', city: '临高', color: '#059669' },
+                  { name: '洋浦经济开发区', city: '洋浦', color: '#0D9488' },
+                  { name: '东方临港产业园', city: '东方', color: '#2DD4BF' },
+                  { name: '三亚中央商务区', city: '三亚', color: '#5EEAD4' },
+                  { name: '三亚崖州湾科技城', city: '三亚', color: '#99F6E4' },
+                  { name: '三亚崖州湾经济和中央商务区', city: '三亚', color: '#CCFBF1' },
+                  { name: '博鳌乐城国际医疗旅游先行区', city: '琼海', color: '#F0FDFA' },
+                  { name: '海南陵水黎安国际教育创新试验区', city: '陵水', color: '#ECFEFF' },
+                ].map((park, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    className="group bg-white/95 backdrop-blur-sm rounded-xl p-4 hover:bg-white transition-all hover:shadow-xl hover:-translate-y-1 border border-white/50"
+                  >
+                    <div className="flex items-start gap-2">
+                      <div 
+                        className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-150 transition-transform"
+                        style={{ backgroundColor: park.color }}
+                      />
+                      <div>
+                        <div className="font-bold text-gray-800 text-xs sm:text-sm leading-snug mb-1">
+                          {park.name}
+                        </div>
+                        <div className="text-xs text-gray-500">{park.city}</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* 装饰元素 */}
+              <div className="absolute top-10 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-10 left-10 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl" />
             </div>
-            <p className="text-center text-gray-400 mt-3 text-xs">
-              {language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
+            <p className="text-center text-gray-400 mt-4 text-xs">
+              {language === 'zh' ? '海南自贸港重点产业园区分布' : 'Hainan FTP Key Industrial Parks Distribution'}
             </p>
           </motion.div>
 
