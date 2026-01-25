@@ -429,7 +429,7 @@ export default function HomePage() {
                   className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 backdrop-blur-sm"
                 >
                   <Image
-                    src="/images/hainan-ftp-parks-map.png"
+                    src="/images/hainan-ftp-parks-map.jpg"
                     alt={language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
                     width={1200}
                     height={900}
