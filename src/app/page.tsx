@@ -393,7 +393,7 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* 13大重点园区展示 - 地图可视化 */}
+          {/* 13大重点园区展示 - 简洁地图可视化 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -401,153 +401,61 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 p-6 sm:p-10">
-              {/* 背景装饰 */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.3),transparent_50%)]" />
-                <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(14,165,233,0.3),transparent_50%)]" />
-              </div>
+            {/* 地图容器 - 干净展示 */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl group"
+            >
+              {/* 地图图片 */}
+              <Image
+                src="/images/hainan-ftp-parks-map.jpg"
+                alt={language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
+                width={1382}
+                height={1280}
+                className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
+                priority
+              />
+              
+              {/* 悬浮时的微光效果 */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
 
-              {/* 标题 */}
-              <div className="text-center mb-8 relative z-10">
-                <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent mb-3">
-                  {language === 'zh' ? '海南自贸港 13 大重点园区' : 'Hainan FTP 13 Key Industrial Parks'}
-                </h3>
-                <p className="text-gray-600 text-lg font-medium">
-                  {language === 'zh' ? '全岛产业布局 · 深度对接服务' : 'Island-wide Industrial Layout · Deep Connection Service'}
-                </p>
-              </div>
-
-              {/* 地图容器 - 响应式布局 */}
-              <div className="relative">
-                {/* 主地图 */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 backdrop-blur-sm"
-                >
-                  <Image
-                    src="/images/hainan-ftp-parks-map.jpg"
-                    alt={language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
-                    width={1200}
-                    height={900}
-                    className="w-full h-auto"
-                    priority
-                  />
-                  
-                  {/* 地图上的浮动信息卡片 */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {/* 左上角 - 海口区域卡片 */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
-                      viewport={{ once: true }}
-                      className="absolute top-[8%] right-[8%] bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-blue-200/50 max-w-[200px]"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse" />
-                        <h4 className="font-bold text-gray-800 text-sm">
-                          {language === 'zh' ? '海口核心区' : 'Haikou Core Area'}
-                        </h4>
-                      </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        {language === 'zh' ? '5大重点园区聚集，打造自贸港核心引擎' : '5 key parks, FTP core engine'}
-                      </p>
-                    </motion.div>
-
-                    {/* 右下角 - 三亚区域卡片 */}
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                      viewport={{ once: true }}
-                      className="absolute bottom-[15%] left-[8%] bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-cyan-200/50 max-w-[200px]"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 animate-pulse" />
-                        <h4 className="font-bold text-gray-800 text-sm">
-                          {language === 'zh' ? '三亚创新区' : 'Sanya Innovation Zone'}
-                        </h4>
-                      </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        {language === 'zh' ? '科技城+中央商务区，双轮驱动发展' : 'Tech city + CBD, dual-drive growth'}
-                      </p>
-                    </motion.div>
-
-                    {/* 中部 - 特色园区卡片 */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.9, duration: 0.6 }}
-                      viewport={{ once: true }}
-                      className="absolute top-[45%] right-[5%] bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-teal-200/50 max-w-[220px]"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 animate-pulse" />
-                        <h4 className="font-bold text-gray-800 text-sm">
-                          {language === 'zh' ? '博鳌乐城' : 'Boao Lecheng'}
-                        </h4>
-                      </div>
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        {language === 'zh' ? '国际医疗旅游先行区，生命科技新高地' : 'Medical tourism pioneer zone'}
-                      </p>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                {/* 地图下方 - 园区网格列表（折叠式） */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
-                >
-                  {[
-                    { name: '海口高新区', icon: '🚀', color: 'from-blue-500 to-cyan-500' },
-                    { name: '复兴城产业园', icon: '💻', color: 'from-cyan-500 to-teal-500' },
-                    { name: '江东新区', icon: '🏗️', color: 'from-teal-500 to-emerald-500' },
-                    { name: '综合保税区', icon: '📦', color: 'from-emerald-500 to-green-500' },
-                    { name: '生态软件园', icon: '🌱', color: 'from-green-500 to-lime-500' },
-                    { name: '临高产业园', icon: '⚓', color: 'from-sky-500 to-blue-500' },
-                    { name: '洋浦开发区', icon: '🏭', color: 'from-indigo-500 to-purple-500' },
-                    { name: '东方产业园', icon: '⚡', color: 'from-purple-500 to-pink-500' },
-                    { name: '三亚中央商务区', icon: '🏢', color: 'from-pink-500 to-rose-500' },
-                    { name: '崖州湾科技城', icon: '🔬', color: 'from-rose-500 to-red-500' },
-                    { name: '博鳌乐城', icon: '🏥', color: 'from-amber-500 to-orange-500' },
-                    { name: '陵水教育创新区', icon: '🎓', color: 'from-orange-500 to-yellow-500' },
-                    { name: '文昌航天城', icon: '🚀', color: 'from-violet-500 to-purple-500' },
-                  ].map((park, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1.2 + index * 0.03, duration: 0.3 }}
-                      viewport={{ once: true }}
-                      className="group relative overflow-hidden bg-white rounded-xl p-3 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-transparent cursor-pointer"
-                    >
-                      {/* 渐变背景 - 悬浮时显示 */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${park.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                      
-                      <div className="relative z-10 flex items-center gap-2">
-                        <span className="text-xl group-hover:scale-110 transition-transform">{park.icon}</span>
-                        <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-                          {park.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* 底部说明文字 */}
-              <p className="text-center text-gray-500 mt-6 text-sm relative z-10">
-                {language === 'zh' ? '🗺️ 海南自贸港全岛产业园区分布 · 深度对接13大重点园区' : '🗺️ Hainan FTP Industrial Parks Distribution'}
+            {/* 地图下方 - 简洁行动号召 */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-8 text-center"
+            >
+              <p className="text-gray-600 text-lg mb-6 max-w-2xl mx-auto leading-relaxed">
+                {language === 'zh' 
+                  ? '根据您的行业特点和发展需求，我们为您精准匹配最适合的园区，定制专属考察路线。' 
+                  : 'Based on your industry and needs, we match the best parks and customize your inspection route.'}
               </p>
-            </div>
+              
+              {/* CTA 按钮组 */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button 
+                  onClick={() => setIsProjectModalOpen(true)}
+                  className="group bg-gradient-to-r from-primary via-secondary to-accent text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  <MapPin className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                  {language === 'zh' ? '定制我的考察路线' : 'Customize My Route'}
+                </Button>
+                
+                <a 
+                  href="tel:13398959441"
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors text-base"
+                >
+                  <Phone className="w-4 h-4" />
+                  {language === 'zh' ? '或致电咨询：13398959441' : 'Call: 13398959441'}
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* 考察旅程四大主题 */}
