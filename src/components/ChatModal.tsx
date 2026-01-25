@@ -99,7 +99,7 @@ export const ChatModal = memo(({ isOpen, onClose }: ChatModalProps) => {
           >
             {/* 头部 */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-primary to-secondary">
-              <h2 className="text-xl font-semibold text-white">工厂AI数字员工</h2>
+              <h2 className="text-xl font-semibold text-white">AI智能客服</h2>
               <button
                 onClick={onClose}
                 className="p-2 hover:bg-white/20 rounded-full transition-colors"
@@ -144,12 +144,12 @@ export const ChatModal = memo(({ isOpen, onClose }: ChatModalProps) => {
 
               <iframe 
                 key={iframeKey}
-                src="https://cloud.fastgpt.cn/chat/share?shareId=vFX7r3XJIUD215GORKgPMPpB" 
+                src="https://cloud.fastgpt.io/chat/share?shareId=k2bXx42MJQwo4kAvocqTdke9" 
                 className="absolute inset-0 w-full h-full border-0"
                 allow="clipboard-write; microphone; camera"
                 allowFullScreen
                 frameBorder="0"
-                title="工时测评助手"
+                title="人工智能客服咨询"
                 referrerPolicy="no-referrer-when-downgrade"
                 onLoad={handleIframeLoad}
                 onError={handleIframeError}

@@ -192,10 +192,21 @@ export default function HomePage() {
               <Button 
                 size="lg" 
                 onClick={() => setIsChatModalOpen(true)}
-                className="cta-button px-12 py-7 text-lg font-semibold tracking-wide w-full sm:w-auto min-h-[64px] shadow-xl hover:shadow-2xl transition-all"
+                className="cta-button px-12 py-7 text-lg font-semibold tracking-wide w-full sm:w-auto min-h-[64px] shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group"
               >
-                <Bot className="w-6 h-6 mr-3" />
-                {language === 'zh' ? '开始咨询' : 'Start Consulting'}
+                {/* 科技感光效背景 */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* 内容 */}
+                <span className="relative z-10 flex items-center">
+                  <Bot className="w-6 h-6 mr-3 group-hover:animate-pulse" />
+                  <span className="relative">
+                    {language === 'zh' ? '开始人工智能客服咨询' : 'Start AI Customer Service'}
+                    {/* 科技感下划线动画 */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-500" />
+                  </span>
+                </span>
               </Button>
               <Button 
                 size="lg" 
