@@ -1,3 +1,5 @@
+<<<<<<< Current (Your changes)
+=======
 {
   "companyInfo": {
     "name": "海南汇融未来有限公司",
@@ -314,11 +316,123 @@
       }
     ]
   },
+  "businessInspection": {
+    "title": "\"汇融未来\"商务考察",
+    "subtitle": "企业入驻海南自贸港的十大核心优势",
+    "description": "我们深度对接13大重点园区，为您定制考察动线。",
+    "slogan": "让我们帮您把复杂的信息碎片，拼成一幅清晰的作战地图。",
+    "parkCount": "13",
+    "parkLabel": "大重点园区深度对接",
+    "experiences": [
+      {
+        "id": 1,
+        "icon": "Eye",
+        "title": "亲眼见证",
+        "description": "园区建设速度与产业集聚实况",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "icon": "Ear",
+        "title": "亲耳聆听",
+        "description": "来自管委会、已落地企业的坦诚分享",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "icon": "Target",
+        "title": "亲自评估",
+        "description": "为您的项目找到最匹配的土壤",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "icon": "Handshake",
+        "title": "亲手链接",
+        "description": "与同期考察的企业家、本地资源方建立深度链接",
+        "color": "#8B5CF6"
+      }
+    ],
+    "journeyThemes": [
+      {
+        "id": 1,
+        "icon": "Compass",
+        "title": "全景探访",
+        "subtitle": "直击引擎",
+        "description": "深入13大园区核心区域，全景式考察产业布局与发展态势",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 2,
+        "icon": "Anchor",
+        "title": "临港抉择",
+        "subtitle": "洞察先机",
+        "description": "聚焦临港经济开发区，洞察自贸港发展先机与投资机遇",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 3,
+        "icon": "Lightbulb",
+        "title": "智库研讨",
+        "subtitle": "明晰蓝图",
+        "description": "与政策专家、行业智库深度研讨，明晰企业发展蓝图",
+        "color": "#F97316"
+      },
+      {
+        "id": 4,
+        "icon": "Heart",
+        "title": "后顾无忧",
+        "subtitle": "悦享人生",
+        "description": "教育、医疗、生活配套一站式规划，让您安心落户海南",
+        "color": "#EC4899"
+      }
+    ],
+    "connections": [
+      {
+        "id": 1,
+        "title": "商机链接",
+        "icon": "TrendingUp",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "人脉链接",
+        "icon": "Users",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "title": "资源链接",
+        "icon": "Network",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "title": "风口链接",
+        "icon": "Rocket",
+        "color": "#8B5CF6"
+      }
+    ],
+    "coreAdvantages": [
+      "零关税政策：进口商品、生产设备、原材料等享受免征关税优惠",
+      "低税率优惠：企业所得税15%，个人所得税最高15%",
+      "人才引进政策：高层次人才个税补贴、住房补贴、子女入学优先",
+      "资金自由便利：资本项目开放，跨境资金流动便利",
+      "贸易自由便利：一线放开、二线管住，简化通关手续",
+      "跨境服务贸易：数字贸易、服务外包等新兴领域政策支持",
+      "产业集聚效应：13大重点园区，形成产业链集群优势",
+      "营商环境优化：极简审批、一站式服务、容缺受理",
+      "战略位置优越：面向东南亚、连接一带一路核心节点",
+      "生态宜居环境：优质自然环境、完善教育医疗配套"
+    ],
+    "mapImage": "/images/hainan-ftp-parks-map.png"
+  },
   "contact": {
-    "phone": "0898-XXXX-XXXX",
+    "phone": "13398959441",
+    "hotline": "海南自贸港启航热线",
     "email": "contact@hrwl-ai.com",
-    "address": "中国·海南·海口市",
-    "addressShort": "海口",
+    "address": "海南省海口市龙华区复兴城C栋2层213室",
+    "addressShort": "海口·复兴城",
     "wechat": "请通过邮件联系获取微信",
     "workingHours": "工作日 9:00-18:00 (GMT+8)",
     "responseTime": "2个工作日内响应",
@@ -326,7 +440,9 @@
       "免费财税咨询",
       "获取自贸区政策资料",
       "预约专业顾问1对1咨询",
-      "了解最新服务和成功案例"
+      "了解最新服务和成功案例",
+      "预约商务考察"
     ]
   }
 }
+>>>>>>> Incoming (Background Agent changes)

@@ -22,6 +22,15 @@ import {
   Eye,
   Handshake,
   Compass,
+  Ear,
+  Anchor,
+  Lightbulb,
+  MapPin,
+  Phone,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Network,
 } from "lucide-react";
 import companyDataZh from "@/data/companyData.json";
 import companyDataEn from "@/data/companyData.en.json";
@@ -113,46 +122,49 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl text-center">
           <motion.div {...fadeInUp}>
 
-            {/* 标签 - 简约苹果风格 */}
+            {/* 标签 - 科技感设计 */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 mb-8"
+              className="inline-flex items-center space-x-3 mb-8 px-5 py-2.5 bg-gradient-to-r from-gray-900/5 via-primary/10 to-gray-900/5 rounded-full border border-gray-200/50 backdrop-blur-sm"
             >
-              <span className="text-base sm:text-lg text-gray-500 tracking-wider font-light">
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse" />
+              <span className="text-sm sm:text-base text-gray-600 tracking-[0.2em] uppercase font-medium">
                 {companyData.companyInfo.tagline}
               </span>
+              <span className="w-2 h-2 rounded-full bg-gradient-to-r from-accent to-primary animate-pulse" />
             </motion.div>
 
-            {/* 主标题 */}
+            {/* 主标题 - 科技感字体 */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tight"
             >
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              <span className="tech-title-gradient">
                 {language === 'zh' ? '海南汇融未来' : 'Hainan Huirong Future'}
               </span>
             </motion.h1>
 
-            {/* 副标题 */}
+            {/* 副标题 - 科技感文字 */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl sm:text-3xl md:text-4xl text-gray-700 mb-10 font-medium"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 mb-10 font-semibold tracking-wide"
             >
               {companyData.companyInfo.slogan}
             </motion.p>
 
-            {/* 描述 */}
+            {/* 描述 - 科技感排版 */}
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-16 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-gray-500 mb-16 max-w-4xl mx-auto leading-relaxed font-light tracking-wide"
+              style={{ textShadow: '0 0 40px rgba(139, 47, 47, 0.1)' }}
             >
               {companyData.companyInfo.subtitle}
             </motion.p>
@@ -231,8 +243,311 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 专业团队 Section - 放在前面更专业 */}
-      <section className="py-24 px-4 bg-gradient-to-b from-white to-gray-50">
+      {/* 汇融未来商务考察 Section - 核心业务板块 */}
+      <section className="py-20 px-4 bg-gradient-to-b from-white via-gray-50/50 to-white relative overflow-hidden">
+        {/* 背景装饰 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
+          {/* Section 标题 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-5">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary tracking-wide">
+                {language === 'zh' ? '核心业务' : 'Core Business'}
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                {companyData.businessInspection?.title || '"汇融未来"商务考察'}
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-3">
+              {companyData.businessInspection?.subtitle || '企业入驻海南自贸港的十大核心优势'}
+            </p>
+            <p className="text-base text-gray-500 max-w-2xl mx-auto">
+              {companyData.businessInspection?.description || '我们深度对接13大重点园区，为您定制考察动线。'}
+            </p>
+          </motion.div>
+
+          {/* 13大园区核心数字 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex justify-center mb-12"
+          >
+            <div className="relative bg-gradient-to-br from-primary via-secondary to-accent p-1 rounded-2xl">
+              <div className="bg-white rounded-2xl px-10 py-6 flex items-center gap-6">
+                <div className="text-center">
+                  <div className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {companyData.businessInspection?.parkCount || '13'}
+                  </div>
+                  <div className="text-gray-600 font-medium mt-1 text-sm">
+                    {companyData.businessInspection?.parkLabel || '大重点园区深度对接'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 四大体验 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h3 className="text-xl font-bold text-center mb-8 text-gray-800">
+              {language === 'zh' ? '您将：' : 'You Will:'}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {companyData.businessInspection?.experiences?.map((exp, index) => {
+                const renderExpIcon = () => {
+                  const iconProps = { className: "w-7 h-7", style: { color: exp.color } };
+                  switch (exp.icon) {
+                    case 'Eye': return <Eye {...iconProps} />;
+                    case 'Ear': return <Ear {...iconProps} />;
+                    case 'Target': return <Target {...iconProps} />;
+                    case 'Handshake': return <Handshake {...iconProps} />;
+                    default: return <Eye {...iconProps} />;
+                  }
+                };
+                return (
+                  <motion.div
+                    key={exp.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="group relative bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-transparent overflow-hidden"
+                  >
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: `linear-gradient(135deg, ${exp.color}10 0%, transparent 100%)` }}
+                    />
+                    <div className="relative z-10">
+                      <div 
+                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-transform group-hover:scale-110"
+                        style={{ backgroundColor: exp.color + '15' }}
+                      >
+                        {renderExpIcon()}
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-1">{exp.title}</h4>
+                      <p className="text-gray-600 text-xs leading-relaxed">{exp.description}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* 海南自贸港园区分布图 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-xl bg-gradient-to-br from-blue-500 to-cyan-400">
+              <Image
+                src={companyData.businessInspection?.mapImage || "/images/hainan-ftp-parks-map.png"}
+                alt={language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
+                width={1200}
+                height={900}
+                className="w-full h-auto object-contain"
+                priority
+              />
+              <div className="absolute inset-0 border-2 border-white/20 rounded-2xl pointer-events-none" />
+            </div>
+            <p className="text-center text-gray-400 mt-3 text-xs">
+              {language === 'zh' ? '海南自贸港全岛产业园区分布图' : 'Hainan FTP Industrial Parks Distribution Map'}
+            </p>
+          </motion.div>
+
+          {/* 考察旅程四大主题 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h3 className="text-xl font-bold text-center mb-8 text-gray-800">
+              {language === 'zh' ? '考察旅程' : 'Inspection Journey'}
+            </h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {companyData.businessInspection?.journeyThemes?.map((theme, index) => {
+                const renderThemeIcon = () => {
+                  const iconProps = { className: "w-8 h-8 text-white" };
+                  switch (theme.icon) {
+                    case 'Compass': return <Compass {...iconProps} />;
+                    case 'Anchor': return <Anchor {...iconProps} />;
+                    case 'Lightbulb': return <Lightbulb {...iconProps} />;
+                    case 'Heart': return <Heart {...iconProps} />;
+                    default: return <Compass {...iconProps} />;
+                  }
+                };
+                return (
+                  <motion.div
+                    key={theme.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="group relative overflow-hidden rounded-xl"
+                  >
+                    <div 
+                      className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
+                      style={{ background: `linear-gradient(135deg, ${theme.color} 0%, ${theme.color}CC 100%)` }}
+                    />
+                    <div className="relative z-10 p-5 text-white min-h-[180px]">
+                      <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+                        {renderThemeIcon()}
+                      </div>
+                      <h4 className="text-lg font-bold mb-0.5">{theme.title}</h4>
+                      <p className="text-white/80 text-sm mb-2">{theme.subtitle}</p>
+                      <p className="text-white/60 text-xs leading-relaxed line-clamp-2">{theme.description}</p>
+                    </div>
+                    <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-white/10" />
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* 核心优势（十大优势） */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h3 className="text-xl font-bold text-center mb-8 text-gray-800">
+              {language === 'zh' ? '企业入驻海南自贸港十大核心优势' : 'Top 10 Core Advantages of Settling in Hainan FTP'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {companyData.businessInspection?.coreAdvantages?.map((advantage, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.03, duration: 0.4 }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 group"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-xs">
+                    {index + 1}
+                  </div>
+                  <p className="text-gray-700 text-xs leading-relaxed group-hover:text-gray-900 transition-colors">
+                    {advantage}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 四大链接 */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-1">
+                {language === 'zh' ? '汇融未来 · 企程海南' : 'Huirong Future · Enterprise Hainan'}
+              </h3>
+              <p className="text-gray-500 text-sm">
+                {language === 'zh' ? '全方位链接，助力企业腾飞' : 'All-round Connection, Empowering Enterprises'}
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {companyData.businessInspection?.connections?.map((conn, index) => {
+                const renderConnIcon = () => {
+                  const iconProps = { className: "w-5 h-5", style: { color: conn.color } };
+                  switch (conn.icon) {
+                    case 'TrendingUp': return <TrendingUp {...iconProps} />;
+                    case 'Users': return <Users {...iconProps} />;
+                    case 'Network': return <Network {...iconProps} />;
+                    case 'Rocket': return <Rocket {...iconProps} />;
+                    default: return <Sparkles {...iconProps} />;
+                  }
+                };
+                return (
+                  <motion.div
+                    key={conn.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    className="group flex items-center gap-2 px-5 py-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all border border-gray-100"
+                  >
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-110"
+                      style={{ backgroundColor: conn.color + '20' }}
+                    >
+                      {renderConnIcon()}
+                    </div>
+                    <span className="font-medium text-gray-800 text-sm">{conn.title}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Slogan & CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-lg sm:text-xl text-gray-700 italic mb-6 max-w-3xl mx-auto">
+              &ldquo;{companyData.businessInspection?.slogan || '让我们帮您把复杂的信息碎片，拼成一幅清晰的作战地图。'}&rdquo;
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <a 
+                href={`tel:${companyData.contact?.phone}`}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-sm"
+              >
+                <Phone className="w-4 h-4" />
+                <span>{companyData.contact?.hotline || '海南自贸港启航热线'}: {companyData.contact?.phone}</span>
+              </a>
+              <Button 
+                size="lg" 
+                onClick={() => setIsChatModalOpen(true)}
+                className="cta-button px-6 py-3 font-semibold rounded-full text-sm"
+              >
+                <Bot className="w-4 h-4 mr-2" />
+                {language === 'zh' ? '预约商务考察' : 'Book Inspection Tour'}
+              </Button>
+            </div>
+            <p className="mt-4 text-gray-500 flex items-center justify-center gap-2 text-xs">
+              <MapPin className="w-3 h-3" />
+              {companyData.contact?.address}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 专业团队 Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -332,52 +647,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 四大赋能引擎 Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+      {/* 四大赋能引擎 Section - 紧凑排版 */}
+      <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto max-w-7xl">
+          {/* 标题和图片并排显示，更紧凑 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="flex flex-col md:flex-row items-center justify-center gap-6 mb-10"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                {companyData.empowermentEngines?.title || '四大赋能引擎'}
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              {companyData.empowermentEngines?.subtitle || '在这里，服务不是终点，共同成长才是'}
-            </p>
-          </motion.div>
-
-          {/* 概念图 - 居中缩小显示 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-10"
-          >
-            <div className="relative w-[200px] sm:w-[240px]">
+            {/* 概念图 - 左侧 */}
+            <div className="relative w-[140px] sm:w-[160px] flex-shrink-0">
               <Image
                 src="/images/engines/four-engines-concept.png"
                 alt={language === 'zh' ? '四大赋能引擎概念图' : 'Four Empowerment Engines Concept'}
-                width={240}
-                height={240}
+                width={160}
+                height={160}
                 className="w-full h-auto"
                 priority
               />
             </div>
+            {/* 标题 - 右侧 */}
+            <div className="text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                  {companyData.empowermentEngines?.title || '四大赋能引擎'}
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 max-w-xl">
+                {companyData.empowermentEngines?.subtitle || '在这里，服务不是终点，共同成长才是'}
+              </p>
+            </div>
           </motion.div>
 
-          {/* 引擎详情卡片 - 2x2 网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* 引擎详情卡片 - 2x2 网格，更紧凑 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {companyData.empowermentEngines?.engines?.map((engine, index) => {
-              // 根据引擎类型渲染对应图标
               const renderIcon = () => {
-                const iconProps = { className: "w-6 h-6", style: { color: engine.color } };
+                const iconProps = { className: "w-5 h-5", style: { color: engine.color } };
                 switch (engine.icon) {
                   case 'Rocket': return <Rocket {...iconProps} />;
                   case 'Users': return <Users {...iconProps} />;
@@ -390,38 +699,35 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={engine.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.08, duration: 0.4 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 group"
+                  className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-primary/20 group"
                 >
-                  {/* 引擎标题 */}
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-2 mb-3">
                     <div 
-                      className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                      className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110"
                       style={{ backgroundColor: engine.color + '15' }}
                     >
                       {renderIcon()}
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900">
                       {engine.title}
                     </h3>
                   </div>
-
-                  {/* 引擎内容项 */}
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     {engine.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex}
-                        className="pl-3 border-l-2 transition-all hover:pl-4"
+                        className="pl-2.5 border-l-2 transition-all hover:pl-3"
                         style={{ borderLeftColor: engine.color }}
                       >
-                        <h4 className="font-semibold text-gray-800 text-sm flex items-center gap-1">
+                        <h4 className="font-semibold text-gray-800 text-xs flex items-center gap-1">
                           <span style={{ color: engine.color }}>›</span>
                           {item.name}
                         </h4>
-                        <p className="text-gray-600 text-xs mt-0.5 leading-relaxed">
+                        <p className="text-gray-500 text-xs mt-0.5 leading-relaxed line-clamp-2">
                           {item.description}
                         </p>
                       </div>

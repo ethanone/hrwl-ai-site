@@ -1,3 +1,5 @@
+<<<<<<< Current (Your changes)
+=======
 {
   "companyInfo": {
     "name": "Hainan Huirong Future Co., Ltd.",
@@ -331,12 +333,124 @@
       }
     ]
   },
+  "businessInspection": {
+    "title": "\"Huirong Future\" Business Inspection",
+    "subtitle": "Top 10 Core Advantages of Enterprises Settling in Hainan FTP",
+    "description": "We deeply connect with 13 key industrial parks to customize your inspection route.",
+    "slogan": "Let us help you piece together complex information fragments into a clear strategic map.",
+    "parkCount": "13",
+    "parkLabel": "Key Industrial Parks Deep Connection",
+    "experiences": [
+      {
+        "id": 1,
+        "icon": "Eye",
+        "title": "Witness Firsthand",
+        "description": "Park construction speed and industrial agglomeration reality",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "icon": "Ear",
+        "title": "Listen Directly",
+        "description": "Candid sharing from management committees and established enterprises",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "icon": "Target",
+        "title": "Evaluate Personally",
+        "description": "Find the most suitable soil for your project",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "icon": "Handshake",
+        "title": "Connect Hands-on",
+        "description": "Build deep connections with fellow entrepreneurs and local resources",
+        "color": "#8B5CF6"
+      }
+    ],
+    "journeyThemes": [
+      {
+        "id": 1,
+        "icon": "Compass",
+        "title": "Panoramic Visit",
+        "subtitle": "Direct to the Engine",
+        "description": "Deep dive into 13 park core areas, panoramic inspection of industrial layout and development trends",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 2,
+        "icon": "Anchor",
+        "title": "Harbor Decision",
+        "subtitle": "Insight First-mover",
+        "description": "Focus on harbor economic zones, gain insight into FTP opportunities and investment chances",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 3,
+        "icon": "Lightbulb",
+        "title": "Think Tank Forum",
+        "subtitle": "Clear Blueprint",
+        "description": "Deep discussions with policy experts and industry think tanks, clarify enterprise development blueprint",
+        "color": "#F97316"
+      },
+      {
+        "id": 4,
+        "icon": "Heart",
+        "title": "Peace of Mind",
+        "subtitle": "Enjoy Life",
+        "description": "Education, healthcare, living amenities one-stop planning, settle in Hainan with peace of mind",
+        "color": "#EC4899"
+      }
+    ],
+    "connections": [
+      {
+        "id": 1,
+        "title": "Business Connection",
+        "icon": "TrendingUp",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "title": "Network Connection",
+        "icon": "Users",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "title": "Resource Connection",
+        "icon": "Network",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "title": "Opportunity Connection",
+        "icon": "Rocket",
+        "color": "#8B5CF6"
+      }
+    ],
+    "coreAdvantages": [
+      "Zero Tariff Policy: Imported goods, equipment, raw materials enjoy duty-free benefits",
+      "Low Tax Rate: 15% corporate income tax, max 15% personal income tax",
+      "Talent Attraction: High-level talent tax subsidies, housing allowances, priority school enrollment",
+      "Free Capital Flow: Open capital accounts, convenient cross-border fund transfers",
+      "Trade Facilitation: Streamlined customs, first-line open, second-line managed",
+      "Cross-border Services: Policy support for digital trade, service outsourcing",
+      "Industrial Clustering: 13 key parks forming industry chain advantages",
+      "Business Environment: Simplified approval, one-stop service, tolerance acceptance",
+      "Strategic Location: Facing Southeast Asia, connecting Belt and Road core node",
+      "Eco-living Environment: Quality natural environment, complete education and healthcare"
+    ],
+    "mapImage": "/images/hainan-ftp-parks-map.png"
+  },
   "contact": {
-    "phone": "0898-XXXX-XXXX",
+    "phone": "13398959441",
+    "hotline": "Hainan FTP Launch Hotline",
     "email": "contact@hrwl-ai.com",
     "emailSecondary": "info@hrwl-ai.com",
-    "address": "Haikou, Hainan, China",
-    "addressShort": "Haikou",
+    "address": "Room 213, Building C, Fuxing City, Longhua District, Haikou, Hainan Province",
+    "addressShort": "Haikou · Fuxing City",
     "wechat": "Please contact via email for WeChat",
     "workingHours": "Weekdays 9:00-18:00 (GMT+8)",
     "responseTime": "Response within 2 business days",
@@ -344,7 +458,9 @@
       "Free financial & tax consulting",
       "Get Free Trade Zone policy materials",
       "Schedule 1-on-1 consultation with professional consultants",
-      "Learn about latest services and success cases"
+      "Learn about latest services and success cases",
+      "Book Business Inspection Tour"
     ]
   }
 }
+>>>>>>> Incoming (Background Agent changes)
