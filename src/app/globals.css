@@ -1,5 +1,3 @@
-<<<<<<< Current (Your changes)
-=======
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -1090,5 +1088,3 @@ a[href^="http"]:not(.tech-button):hover::after {
     transform: scale(0.8);
   }
 }
-
->>>>>>> Incoming (Background Agent changes)
